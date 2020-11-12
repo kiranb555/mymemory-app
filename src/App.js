@@ -11,12 +11,10 @@ import Form from "./components/Form/Form";
 import useStyles from "./styles";
 
 function App() {
-  const [currentId, SetCurrentId] = useState(null);
+  const [currentId, SetCurrentId] = useState(0);
 
   const classes = useStyles();
   const dispatch = useDispatch();
-
-  console.log(dispatch, "---dispatch-----");
 
   useEffect(() => {
     dispatch(getPosts());
