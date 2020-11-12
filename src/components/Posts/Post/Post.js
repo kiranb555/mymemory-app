@@ -18,6 +18,7 @@ import { deletePost, likePost } from "../../../actions/posts";
 const Post = ({ post, SetCurrentId }) => {
   const dispatch = useDispatch();
 
+  console.log({ post });
   const classes = useStyles();
   return (
     <Card className={classes.card}>
@@ -44,9 +45,9 @@ const Post = ({ post, SetCurrentId }) => {
       </div>
       <div className={classes.details}>
         <Typography variant="body2" color="textSecondary">
-          {post.tags.map((tag, i) => (
-            <Fragment key={i}>#{tag}</Fragment>
-          ))}
+          {post &&
+            post.tags &&
+            post.tags.map((tag, i) => <Fragment key={i}>#{tag}</Fragment>)}
         </Typography>
       </div>
 
