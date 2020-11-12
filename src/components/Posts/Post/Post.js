@@ -17,9 +17,16 @@ import { deletePost, likePost } from "../../../actions/posts";
 
 const Post = ({ post, SetCurrentId }) => {
   const dispatch = useDispatch();
-
-  console.log({ post });
   const classes = useStyles();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handler = (id) => {
+    SetCurrentId(id);
+    scrollToTop();
+  };
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -38,7 +45,7 @@ const Post = ({ post, SetCurrentId }) => {
         <Button
           style={{ color: "#fff" }}
           size="small"
-          onClick={() => SetCurrentId(post._id)}
+          onClick={() => handler(post._id)}
         >
           <MoreHorizIcon fontSize="default" />
         </Button>
